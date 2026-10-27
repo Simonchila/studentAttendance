@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Lecturer | Student Attendance</title>
+</head>
+<body>
+
+<h1>Create Lecturer Account</h1>
+
+<p th:if="${creationError}"
+   th:text="${creationError}">
+</p>
+
+<form th:action="@{/admin/lecturers}"
+      th:object="${lecturerRequest}"
+      method="post">
+
+    <div>
+        <label for="fullName">Full name</label>
+        <input id="fullName"
+               type="text"
+               th:field="*{fullName}"
+               required>
+        <p th:errors="*{fullName}"></p>
+    </div>
+
+    <div>
+        <label for="email">University email</label>
+        <input id="email"
+               type="email"
+               th:field="*{email}"
+               required>
+        <p th:errors="*{email}"></p>
+    </div>
+
+    <div>
+        <label for="password">Initial password</label>
+        <input id="password"
+               type="password"
+               th:field="*{password}"
+               minlength="8"
+               maxlength="72"
+               required>
+        <p th:errors="*{password}"></p>
+    </div>
+
+    <p>Account role: Lecturer</p>
+
+    <button type="submit">Create Lecturer</button>
+</form>
+
+<p><a th:href="@{/admin}">Back to dashboard</a></p>
+
+</body>
+</html>

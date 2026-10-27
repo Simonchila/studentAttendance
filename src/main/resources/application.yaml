@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: StudentAttendance
+
+  datasource:
+    url: jdbc:postgresql://localhost:5434/campus_attendance
+    username: campus_user
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+

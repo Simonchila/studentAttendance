@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Student Attendance</title>
+</head>
+<body>
+
+<h1>Admin Dashboard</h1>
+<p>Manage the university attendance system.</p>
+
+<p th:if="${successMessage}"
+   th:text="${successMessage}">
+</p>
+
+<section>
+    <h2>Lecturers</h2>
+    <p>Create accounts for university lecturers.</p>
+    <a th:href="@{/admin/lecturers/new}">
+        Create Lecturer Account
+    </a>
+</section>
+
+<section>
+    <h2>Courses</h2>
+    <p>Course management will be added in the next phase.</p>
+</section>
+
+<section>
+    <h2>Classrooms</h2>
+    <p>Classroom management will be added in the next phase.</p>
+</section>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Log out</button>
+</form>
+
+</body>
+</html>

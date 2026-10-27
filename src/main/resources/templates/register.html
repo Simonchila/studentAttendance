@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Account | CampusAttend</title>
+</head>
+<body>
+<main>
+    <h1>CampusAttend</h1>
+    <h2>Create your student account</h2>
+
+    <p th:if="${registrationError}"
+       th:text="${registrationError}"
+       style="color: red;"></p>
+
+    <form th:action="@{/register}"
+          th:object="${registerRequest}"
+          method="post">
+
+        <div>
+            <label for="fullName">Full name</label>
+            <input id="fullName" type="text"
+                   th:field="*{fullName}" required>
+            <p th:errors="*{fullName}" style="color: red;"></p>
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input id="email" type="email"
+                   th:field="*{email}" required>
+            <p th:errors="*{email}" style="color: red;"></p>
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input id="password" type="password"
+                   th:field="*{password}"
+                   minlength="8" maxlength="72" required>
+            <p th:errors="*{password}" style="color: red;"></p>
+        </div>
+
+        <button type="submit">Create account</button>
+    </form>
+
+    <p><a th:href="@{/login}">Already registered? Log in</a></p>
+</main>
+</body>
+</html>

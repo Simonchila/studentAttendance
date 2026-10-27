@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | CampusAttend</title>
+</head>
+<body>
+<main>
+    <h1>Welcome to CampusAttend</h1>
+
+    <p>
+        Signed in as:
+        <strong th:text="${email}"></strong>
+    </p>
+
+    <p>
+        Your authorities:
+        <span th:text="${roles}"></span>
+    </p>
+
+    <p>Your dashboard will be developed in the next stages.</p>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Log out</button>
+    </form>
+</main>
+</body>
+</html>

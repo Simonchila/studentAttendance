@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login | CampusAttend</title>
+</head>
+<body>
+<main>
+    <h1>CampusAttend</h1>
+    <h2>Sign in</h2>
+    <p>Sign in to manage or view your lecture attendance.</p>
+
+    <p th:if="${successMessage}"
+       th:text="${successMessage}"
+       style="color: green;"></p>
+
+    <p th:if="${loginError}"
+       th:text="${loginError}"
+       style="color: red;"></p>
+
+    <p th:if="${logoutMessage}"
+       th:text="${logoutMessage}"
+       style="color: green;"></p>
+
+    <form th:action="@{/login}" method="post">
+        <div>
+            <label for="email">Email</label>
+            <input id="email" type="email"
+                   name="email" autocomplete="username" required>
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input id="password" type="password"
+                   name="password"
+                   autocomplete="current-password" required>
+        </div>
+
+        <button type="submit">Sign in</button>
+    </form>
+
+    <p><a th:href="@{/register}">Create a student account</a></p>
+</main>
+</body>
+</html>
